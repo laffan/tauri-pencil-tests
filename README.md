@@ -36,11 +36,11 @@ plugin event channel.
 ```bash
 npm install
 
-# Generate iOS app icons (skip if you don't care, but the bundler complains)
-npx tauri icon path/to/some-1024.png
-
 # Generate the Xcode project under src-tauri/gen/apple/
 npx tauri ios init
+
+# (Optional) replace the placeholder solid-blue icons with your own:
+# npx tauri icon path/to/your-1024.png
 ```
 
 ## Running on a device
