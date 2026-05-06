@@ -1,0 +1,11 @@
+{
+  "$schema": "../gen/schemas/mobile-schema.json",
+  "identifier": "default",
+  "description": "default capability set for the pencil demo",
+  "windows": ["main"],
+  "platforms": ["iOS", "android", "macOS", "linux", "windows"],
+  "permissions": [
+    "core:default",
+    "pencil:default"
+  ]
+}

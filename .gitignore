@@ -1,0 +1,12 @@
+node_modules/
+dist/
+target/
+Cargo.lock
+src-tauri/gen/
+src-tauri/target/
+tauri-plugin-pencil/target/
+.DS_Store
+.tauri/
+*.log
+.vscode/
+.idea/

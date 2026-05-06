@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <title>Pencil Test</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #111;
+        color: #eee;
+        font-family: -apple-system, system-ui, sans-serif;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        overscroll-behavior: none;
+        touch-action: none;
+      }
+      #stage {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+      #input {
+        font-size: 5rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      #input.pencil { color: #5bc0ff; }
+      #input.finger { color: #ffb15b; }
+      #input.idle   { color: #555; }
+      #mode {
+        font-size: 1.25rem;
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        border: 1px solid #444;
+      }
+      #mode.on  { background: #1f6f3a; border-color: #2a9c52; color: #d8ffe4; }
+      #mode.off { background: #222; }
+      #hint {
+        position: absolute;
+        bottom: 1.5rem;
+        font-size: 0.85rem;
+        color: #777;
+        text-align: center;
+        padding: 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <div id="input" class="idle">—</div>
+      <div id="mode" class="off">mode: OFF</div>
+      <div id="hint">Touch anywhere. Double-tap Pencil to toggle mode.</div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
