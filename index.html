@@ -22,41 +22,110 @@
         inset: 0;
         display: flex;
         flex-direction: column;
+      }
+      #top {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 1rem;
+        padding: 1rem;
       }
       #input {
         font-size: 5rem;
         font-weight: 700;
         letter-spacing: 0.05em;
+        line-height: 1;
       }
       #input.pencil { color: #5bc0ff; }
       #input.finger { color: #ffb15b; }
       #input.idle   { color: #555; }
       #mode {
-        font-size: 1.25rem;
-        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+        padding: 0.4rem 0.9rem;
         border-radius: 999px;
         border: 1px solid #444;
       }
       #mode.on  { background: #1f6f3a; border-color: #2a9c52; color: #d8ffe4; }
       #mode.off { background: #222; }
-      #hint {
-        position: absolute;
-        bottom: 1.5rem;
-        font-size: 0.85rem;
-        color: #777;
-        text-align: center;
-        padding: 0 1rem;
+      #status {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 999px;
+        border: 1px solid #444;
+        background: #222;
       }
+      #status.ok  { background: #1f6f3a; border-color: #2a9c52; color: #d8ffe4; }
+      #status.err { background: #6f1f1f; border-color: #9c2a2a; color: #ffd8d8; }
+
+      #panel {
+        flex: 0 0 45%;
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid #333;
+        background: #0a0a0a;
+        min-height: 200px;
+      }
+      #panel-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.6rem;
+        border-bottom: 1px solid #222;
+      }
+      #panel-bar h2 {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #aaa;
+        margin: 0;
+        flex: 1;
+      }
+      .btn {
+        font-size: 0.75rem;
+        font-family: inherit;
+        padding: 0.3rem 0.6rem;
+        background: #2a2a2a;
+        color: #ddd;
+        border: 1px solid #444;
+        border-radius: 6px;
+      }
+      .btn:active { background: #444; }
+      .btn.flash { background: #1f6f3a; border-color: #2a9c52; color: #d8ffe4; }
+
+      #log {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        padding: 0.4rem 0.6rem;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 0.72rem;
+        line-height: 1.35;
+        color: #c8c8c8;
+        white-space: pre-wrap;
+        word-break: break-word;
+        -webkit-user-select: text;
+        user-select: text;
+      }
+      #log .err  { color: #ff8080; }
+      #log .ok   { color: #80ffaa; }
+      #log .info { color: #9bd1ff; }
     </style>
   </head>
   <body>
     <div id="stage">
-      <div id="input" class="idle">—</div>
-      <div id="mode" class="off">mode: OFF</div>
-      <div id="hint">Touch anywhere. Double-tap Pencil to toggle mode.</div>
+      <div id="top">
+        <div id="status">starting…</div>
+        <div id="input" class="idle">—</div>
+        <div id="mode" class="off">mode: OFF</div>
+      </div>
+      <div id="panel">
+        <div id="panel-bar">
+          <h2>debug log</h2>
+          <button class="btn" id="copy-btn">Copy</button>
+          <button class="btn" id="clear-btn">Clear</button>
+        </div>
+        <div id="log"></div>
+      </div>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
